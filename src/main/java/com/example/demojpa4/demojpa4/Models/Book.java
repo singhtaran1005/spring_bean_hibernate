@@ -44,5 +44,13 @@ public class Book {
         this.cost = cost;
     }
 
+    public Book(int id, String bookName, String authorName, int cost) {
+        this.id = id;
+        this.bookName = bookName;
+        this.authorName = authorName;
+        this.cost = cost;
+    }
 
+    public Book() {
+    }
 }

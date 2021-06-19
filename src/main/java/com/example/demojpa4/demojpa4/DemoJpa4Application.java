@@ -19,11 +19,11 @@ public class DemoJpa4Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Book b1 = new Book();
-        b1.setId(1);
-        b1.setCost(20);
-        b1.setAuthorName("Taran");
-        b1.setBookName("Life in 2021");
+        Book b1 = new Book(3,"HAHA","Simar",50);
+//        b1.setId(2);
+//        b1.setCost(30);
+//        b1.setAuthorName("Karan");
+//        b1.setBookName("Dreams");
         bookRepository.save(b1);  //saving to db
     }
 }
