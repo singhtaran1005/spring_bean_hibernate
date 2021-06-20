@@ -1,13 +1,17 @@
 package com.example.demojpa4.demojpa4.Models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity  //then only hibernate will pick it up(Spring IOC container)
+@Table(name = "my_book")  // to change the table name
 public class Book {
 
     @Id
     private int id;
+    @Column(name = "book_name") //to change the column name
     private String bookName;
     private String authorName;
     private int cost;
@@ -52,5 +56,15 @@ public class Book {
     }
 
     public Book() {
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", bookName='" + bookName + '\'' +
+                ", authorName='" + authorName + '\'' +
+                ", cost=" + cost +
+                '}';
     }
 }
