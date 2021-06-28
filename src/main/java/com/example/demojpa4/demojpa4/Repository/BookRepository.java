@@ -14,13 +14,13 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Query(value = "select * from book b where b.author_name=:my_name", nativeQuery = true)
     public List<Book> findByAuthor(String my_name);   //to make your own function using native query language
 
-    @Query(value = "select b from Book b where b.authorName=:authors_name")
-    public List<Book> findByAuthors(String authors_name); //using java persistance query language
+//    @Query(value = "select b from Book b where b.authorName=:authors_name")
+//    public List<Book> findByAuthors(String authors_name); //using java persistance query language
     //jpql makes mapping from the java object
 
-    List<Book> findByCost(int cost);
-
-    Book findById(int id);
+//    List<Book> findByCost(int cost);
+//
+//    Book findById(int id);
 }
 
 

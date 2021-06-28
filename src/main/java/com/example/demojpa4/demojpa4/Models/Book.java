@@ -1,20 +1,19 @@
 package com.example.demojpa4.demojpa4.Models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity  //then only hibernate will pick it up(Spring IOC container)
-@Table(name = "my_book")  // to change the table name
+//@Table(name = "my_book")  // to change the table name
 public class Book {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "book_name") //to change the column name
+    //    @Column(name = "book_name") //to change the column name
     private String bookName;
     private String authorName;
     private int cost;
+
 
     public int getId() {
         return id;
@@ -48,8 +47,8 @@ public class Book {
         this.cost = cost;
     }
 
-    public Book(int id, String bookName, String authorName, int cost) {
-        this.id = id;
+    public Book( String bookName, String authorName, int cost) {
+//        this.id = id;
         this.bookName = bookName;
         this.authorName = authorName;
         this.cost = cost;
