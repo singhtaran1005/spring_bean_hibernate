@@ -14,6 +14,10 @@ public class Book {
     private String authorName;
     private int cost;
 
+    @ManyToOne
+    @JoinColumn  //joins primary key of this table
+    private BookCategory bookCategory;
+    //as many book corresponds to one book category
 
     public int getId() {
         return id;
@@ -47,11 +51,27 @@ public class Book {
         this.cost = cost;
     }
 
-    public Book( String bookName, String authorName, int cost) {
+    public BookCategory getBookCategory() {
+        return bookCategory;
+    }
+
+    public void setBookCategory(BookCategory bookCategory) {
+        this.bookCategory = bookCategory;
+    }
+
+    public Book(String bookName, String authorName, int cost) {
 //        this.id = id;
         this.bookName = bookName;
         this.authorName = authorName;
         this.cost = cost;
+    }
+
+    public Book(String bookName, String authorName, int cost, int bookCategory) {
+        this.bookName = bookName;
+        this.authorName = authorName;
+        this.cost = cost;
+        this.bookCategory = new BookCategory();
+        this.bookCategory.setId(bookCategory);
     }
 
     public Book() {
